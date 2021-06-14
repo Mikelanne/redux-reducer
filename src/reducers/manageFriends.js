@@ -10,8 +10,9 @@ export function manageFriends(state = {friends: []}, action){
                 }
             ]}
           case 'REMOVE_FRIEND':
+              const filteredFriends = state.friends.filter(friend => friend.id !== action.id)
             return { friends: [
-                ...state.friends.slice(0, action.friend.id)
+                ...filteredFriends
             ]}
           default:
             return state
